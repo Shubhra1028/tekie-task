@@ -9,14 +9,18 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     alignItems: "center",
     width: 400,
-    justifyContent: "center"
+    justifyContent: "center",
+    backgroundColor: "#242424"
   },
   input: {
     marginLeft: theme.spacing(1),
-    flex: 1
+    flex: 1,
+    color: "#ffffff"
   },
   iconButton: {
-    padding: 10
+    padding: 10,
+    color: "#ffffff",
+    fontFamily: '"Lato", sans-serif'
   }
 }));
 

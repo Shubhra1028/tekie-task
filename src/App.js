@@ -16,6 +16,7 @@ export default function App() {
           name
           home_port
           image
+          roles
         }
       }
     `);

@@ -4,28 +4,43 @@ import {
   CardActionArea,
   CardMedia,
   CardActions,
-  Typography
+  Typography,
+  Chip
 } from "@material-ui/core";
 
 export default function ResultCards(props) {
+  const { ship } = props;
+  const renderRoles = () => {
+    if (!ship) {
+      return null;
+    }
+    return ship.roles.map((role, key) => {
+      return <Chip className="roles" label={role} key={key} />;
+    });
+  };
   return (
     <div className="srch-cards">
       <Card className="cards">
         <CardActionArea>
           <CardMedia
             component="img"
-            alt={props.ship.name}
+            alt={ship.name}
             height="200"
-            image={props.ship.image}
-            title={props.ship.name}
+            image={ship.image}
+            title={ship.name}
           />
         </CardActionArea>
         <CardActions className="card-actions">
-          <Typography variant="h5" component="h4">
-            {props.ship.name}
-          </Typography>
-          <Typography variant="h5" component="h4">
-            PORT : {props.ship.home_port}
+          <div>
+            <Typography variant="h5" component="h4">
+              {ship.name}
+            </Typography>
+            <Typography variant="h5" component="h4">
+              PORT : {ship.home_port}
+            </Typography>
+          </div>
+          <Typography variant="h5" component="h6">
+            Roles: {renderRoles()}
           </Typography>
         </CardActions>
       </Card>

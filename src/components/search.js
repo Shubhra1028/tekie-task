@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper, InputBase, IconButton } from "@material-ui/core";
 import { Search as SearchIcon } from "@material-ui/icons";
@@ -25,6 +25,12 @@ const useStyles = makeStyles(theme => ({
 
 export default function Search(props) {
   const classes = useStyles();
+  const [srchInput, setSrchInput] = useState("");
+
+  const handleInput = e => {
+    e.persist();
+    setSrchInput(e.target.value);
+  };
   return (
     <div className="search">
       <Paper component="form" className={classes.root}>
@@ -32,6 +38,8 @@ export default function Search(props) {
           className={classes.input}
           placeholder="Search Ships"
           inputProps={{ "aria-label": "search ships" }}
+          onChange={handleInput}
+          value={srchInput}
         />
         <IconButton
           type="submit"

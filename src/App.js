@@ -40,7 +40,7 @@ export default function App() {
   return (
     <div className="App">
       <Header />
-      <Search />
+      <Search total={!ships ? 0 : ships.length} />
       <div className="searchResults">{renderResultCards()}</div>
     </div>
   );

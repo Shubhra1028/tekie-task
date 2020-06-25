@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Search() {
+export default function Search(props) {
   const classes = useStyles();
   return (
     <div className="search">
@@ -41,7 +41,7 @@ export default function Search() {
           <SearchIcon />
         </IconButton>
       </Paper>
-      <p>Total Ships : 22</p>
+      <p>Total Ships : {props.total}</p>
     </div>
   );
 }

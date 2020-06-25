@@ -11,6 +11,7 @@ body {
 .App {
   font-family: sans-serif;
   text-align: center;
+  display: grid;
 }
 
 .header {
@@ -20,7 +21,6 @@ body {
   justify-content: left;
   padding: 24px 10vw;
   margin: 0;
-  /* background-color: #00171f; */
 }
 
 .header img {

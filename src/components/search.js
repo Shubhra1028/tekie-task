@@ -8,7 +8,6 @@ const useStyles = makeStyles(theme => ({
     padding: "2px 4px",
     display: "flex",
     alignItems: "center",
-    width: 400,
     justifyContent: "center",
     backgroundColor: "#242424"
   },
@@ -42,6 +41,7 @@ export default function Search() {
           <SearchIcon />
         </IconButton>
       </Paper>
+      <p>Total Ships : 22</p>
     </div>
   );
 }

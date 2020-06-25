@@ -26,7 +26,11 @@ export default function ResultCards(props) {
             component="img"
             alt={ship.name}
             height="200"
-            image={ship.image}
+            image={
+              ship.image
+                ? ship.image
+                : "https://morgancounty.in.gov/wp-content/uploads/2018/03/noimage.570x380.png"
+            }
             title={ship.name}
           />
         </CardActionArea>

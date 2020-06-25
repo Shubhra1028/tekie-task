@@ -8,7 +8,7 @@ import ResultCards from "./components/resultCards";
 
 export default function App() {
   const [ships, setShips] = useState(null);
-
+  const [showShips, setShowShips] = useState(null);
   const fetchShips = async () => {
     const response = await request(gql`
       {
@@ -20,8 +20,8 @@ export default function App() {
         }
       }
     `);
-    console.log(response);
     setShips(response.data.ships);
+    setShowShips(response.data.ships);
   };
 
   useEffect(() => {
@@ -29,18 +29,29 @@ export default function App() {
   }, []);
 
   const renderResultCards = () => {
-    if (!ships) {
+    if (!showShips) {
       return null;
     }
-    return ships.map((ship, key) => {
+    return showShips.map((ship, key) => {
       return <ResultCards key={key} ship={ship} />;
     });
+  };
+
+  const handleFiter = term => {
+    setShowShips(
+      ships.filter(ship => {
+        return ship.name.toLowerCase().indexOf(term.toLowerCase()) !== -1;
+      })
+    );
   };
 
   return (
     <div className="App">
       <Header />
-      <Search total={!ships ? 0 : ships.length} />
+      <Search
+        total={!showShips ? 0 : showShips.length}
+        handleFiter={handleFiter}
+      />
       <div className="searchResults">{renderResultCards()}</div>
     </div>
   );

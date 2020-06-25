@@ -31,9 +31,16 @@ export default function Search(props) {
     e.persist();
     setSrchInput(e.target.value);
   };
+
+  const handleSubmit = e => {
+    e.persist();
+    e.preventDefault();
+    props.handleFiter(srchInput);
+  };
+
   return (
     <div className="search">
-      <Paper component="form" className={classes.root}>
+      <Paper component="form" onSubmit={handleSubmit} className={classes.root}>
         <InputBase
           className={classes.input}
           placeholder="Search Ships"
